@@ -3,12 +3,35 @@
 
 ## Sumário
 
-1. [Introdução ao GitHub](#introdução-ao-github)
-2. [Configuração Inicial](#configuração-inicial)
-3. [Comandos Básicos do Git](#comandos-básicos-do-git)
-4. [Trabalho Colaborativo](#trabalho-colaborativo)
-5. [Funcionalidades Avançadas](#funcionalidades-avançadas)
-6. [Boas Práticas e Dicas](#boas-práticas-e-dicas)   
+* [Introdução ao GitHub](#introdução-ao-github)
+  * [O que é GitHub?](#o-que-é-github)
+  * [História e evolução do GitHub](#história-e-evolução-do-github)
+  * [Principais funcionalidades e benefícios](#principais-funcionalidades-e-benefícios)
+* [Configuração Inicial](#configuração-inicial)
+  * [Criando uma conta no GitHub:](#criando-uma-conta-no-github)
+  * [Instalando o Git e configurando no GitHub:](#instalando-o-git-e-configurando-no-github)
+  * [Primeiros passos: criando e clonando repositórios:](#primeiros-passos-criando-e-clonando-repositórios)
+* [Comandos Básicos do Git](#comandos-básicos-do-git)
+  * [Estrutura de um Repositório Git](#estrutura-de-um-repositório-git)
+  * [Iniciando um Repositório](#iniciando-um-repositório)
+  * [Principais Comandos](#principais-comandos)
+  * [Gerenciamento de Branches](#gerenciamento-de-branches)
+* [Trabalho Colaborativo](#trabalho-colaborativo)
+  * [Clonando e forkeando repositórios](#clonando-e-forkeando-repositórios)
+  * [Pull requests: como criar e gerenciar](#pull-requests-como-criar-e-gerenciar)
+  * [Revisão de código e merge de pull requests](#revisão-de-código-e-merge-de-pull-requests)
+  * [Resolvendo conflitos](#resolvendo-conflitos)
+* [Funcionalidades Avançadas](#funcionalidades-avançadas)
+  * [GitHub Actions: automatizando fluxos de trabalho](#github-actions-automatizando-fluxos-de-trabalho)
+  * [Issues e Projects: gerenciamento de tarefas e projetos](#issues-e-projects-gerenciamento-de-tarefas-e-projetos)
+  * [GitHub Pages: criando sites estáticos com GitHub](#github-pages-criando-sites-estáticos-com-github)
+  * [Integrações e APIs](#integrações-e-apis)
+* [Boas Práticas e Dicas](#boas-práticas-e-dicas)
+  * [Escrevendo bons commits e mensagens](#escrevendo-bons-commits-e-mensagens)
+  * [Estrutura organizacional de repositórios](#estrutura-organizacional-de-repositórios)
+  * [Segurança e permissões](#segurança-e-permissões)
+  * [Uso de templates e arquivos de configuração (`.gitignore`, `README.md`)](#uso-de-templates-e-arquivos-de-configuração-gitignore-readmemd)
+
 
 # Introdução ao GitHub
 
@@ -37,7 +60,7 @@ Além disso, o GitHub é amplamente utilizado por programadores para divulgaçã
 
   1. Acesse o site do [GitHub](https://github.com/).
   2. Clique em “Sign up” (ou “Inscreva-se”) e siga as instruções para criar sua conta.
-  3. Verifique seu e-mail para confirmar o cadastro.
+  3. Verifique seu e-mail para confirmar o cadastro[^2].
 
 ### Instalando o Git e configurando no GitHub:
  - Instale o Git em seu computador. Você pode baixá-lo em [git-scm.com](https://git-scm.com/).
@@ -53,7 +76,8 @@ $ git config --global user.email "seu@email.com"
 ### Primeiros passos: criando e clonando repositórios:
 
 - Crie um novo repositório no GitHub clicando em “New” (ou “Novo”).  
-- Dê um nome ao repositório, escolha a visibilidade (público ou privado) e clique em “Create repository” (ou “Criar repositório”).  
+- Dê um nome ao repositório, escolha a visibilidade (público ou privado) e clique em “Create repository” (ou “Criar repositório”)[^1].  
+![Criando um novo repositório no GitHub](https://github.blog/wp-content/uploads/2024/06/create-new-repository.gif)
 - Para clonar um repositório existente, copie o link do repositório no GitHub e execute o seguinte comando no terminal:
 ```console
 $ git clone <link-do-repositório>
@@ -98,8 +122,8 @@ $ git commit -m "Mensagem descritiva"
 ```
 ### Principais Comandos
 - `git init`: É o responsável por iniciar um repositório Git no projeto, criando a pasta **.git**, que vai guardar as informações sobre as mudanças no código
-- `git add <arquivo>`: Adiciona os arquivos à area de preparação (staging) para o commit, ou seja, informa ao git quais arquivos devem ser incluidos no próximo commit.
-- `git commit`: Grava todas as alterações dos arquivos adicionados no comando anterior ao repositório, criando um novo "ponto na história" do projeto.
+- `git add <arquivo>`: Adiciona os arquivos à area de preparação (staging) para o commit, ou seja, informa ao git quais arquivos devem ser incluidos no próximo commit[^4].
+- `git commit`: Grava todas as alterações dos arquivos adicionados no comando anterior ao repositório, criando um novo "ponto na história" do projeto[^5].
 - `git push`: Envia suas mudanças para um repositório remoto (como o GitHub).
 - `git pull`: Atualiza seu repositório local com as mudanças do repositório remoto.
 - `git branch`: Lista, cria ou exclui branches (ramificações) no seu projeto.
@@ -118,8 +142,8 @@ Use branches para desenvolver recursos separadamente e mesclá-los quando pronto
 $ git clone <link-do-projeto>
 ```
 **Forkear *(Fork)***: Cria uma cópia do repositório na sua conta do GitHub e possibilita a criação de novas funcionalidades sem afetar o projeto original, ramificando o projeto.
-- No GitHub, clique no botão "Fork" na página do repositório
-![botão fork](img\forkimg.png)
+- No GitHub, clique no botão "Fork" na página do repositório  
+![botão fork](img/forkimg.png)
 
 ### Pull requests: como criar e gerenciar
 - Criando Pull Request:
@@ -131,7 +155,8 @@ $ git clone <link-do-projeto>
       $ git push origin <nome-da-branch>
       ```
   3. Na página principal do repositório no GitHub, escolha a branch que contém os seus commits e clique no botão "Compare & pull request" na faixa amarela que aparecerá acima dos arquivos.
-  4. Adicione um título e uma descrição e clique em "Create Pull Request"  
+  ![Faixa amarela](https://docs.github.com/assets/cb-34097/mw-1440/images/help/pull_requests/pull-request-compare-pull-request.webp)
+  4. Adicione um título e uma descrição e clique em "Create Pull Request"[^3]  
 
 - Gerenciando Pull Requests: Após o pull request, podem ser feitas revisões por outros desenvolvedores, que adicionarão comentários e sugestões. Se necessário, é possível fazer novas alterações no código enviá-lo (usando `git push`) para atualizar o Pull Request
 
@@ -142,7 +167,7 @@ $ git clone <link-do-projeto>
 
 ### Resolvendo conflitos
 Conflitos acontecem quando duas pessoas alteram a mesma linha de código.
-- Como resolver:
+- Como resolver[^6]:
   1. O Git indicará os arquivos com conflito
   2. Abra o arquivo e analise as marcações conflito, da seguinte forma:
       ```powershell
@@ -157,6 +182,88 @@ Conflitos acontecem quando duas pessoas alteram a mesma linha de código.
 
 # Funcionalidades Avançadas
 
+### GitHub Actions: automatizando fluxos de trabalho
+Com GitHub Actions[^7], é possível criar fluxos de trabalho personalizados que são acionados por eventos no repositório, como:
+
+* **Testar o código** a cada novo commit.
+* **Gerar builds** e implantá-los em um servidor.
+* **Enviar notificações** ao time sobre eventos importantes.
+* **Automatizar publicações** em plataformas externas.
+
+**Criando um Fluxo de Trabalho:**
+
+* Crie um arquivo YAML na pasta `.github/workflows` do repositório, definindo os gatilhos (triggers), tarefas (jobs) e ações (actions) do seu fluxo de trabalho. 
+* O GitHub também oferece uma biblioteca de ações prontas para usar e também permite a criação de ações personalizadas para o projeto.  
+**Exemplo (Teste Automatizado):**
+  ```yaml
+  name: Testes Automáticos
+  on: [push]
+  jobs:
+    testar:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Instalar Dependências
+          run: npm install
+        - name: Executar Testes
+          run: npm test
+  ```
+
+### Issues e Projects: gerenciamento de tarefas e projetos
+
+* **Issues:** Crie "cartões" para rastrear bugs, novas funcionalidades ou qualquer tarefa[^8].
+    * Adicione descrições detalhadas, atribua responsáveis, defina milestones e acompanhe o progresso.
+* **Projects**: Organize as Issues em quadros Kanban ou gráfico de Gantt para visualizar o fluxo de trabalho. 
+    * Crie colunas personalizadas (ex: "A Fazer", "Em Andamento", "Concluído") e mova as Issues entre elas.  
+![Projects](img/projects.gif)
+
+### GitHub Pages: criando sites estáticos com GitHub
+Transforme o repositório em um site estático hospedado no GitHub em alguns cliques[^9]:
+1. Crie um repositório público chamado <nome_de_usuario>.github.io
+2. Clone o repositório localmente, altere e faça o push.
+  ```powershell
+  $ git clone https://github.com/<nome_de_usuario>/<nome_de_usuario>.github.io
+  $ cd <nome_de_usuario>.github.io
+  $ echo "Hello World" > index.html
+  $ git add --all
+  $ git commit -m "Initial commit"
+  $ git push -u origin main
+  ```
+3. Acesse o endereço `<nome_de_usuario>.github.io` para visualizar o site online.
+* Ideal para hospedar a documentação, portifólio, landing pages e projetos simples
+* Integração com Jekyll e outros geradores possibilita a criação de sites mais complexos e com layouts personalizados.
+* Use um domínio próprio:[^11] basta criar um arquivo chamado `CNAME`, contendo apenas o domínio adquirido[^10].
+
+### Integrações e APIs
+
+* **APIs:** Acesse dados do GitHub, automatize tarefas complexas e crie integrações personalizadas.
+* **GitHub Marketplace:**  Encontre e utilize apps prontos para diversas funcionalidades, como CI/CD, monitoramento, segurança e muito mais.
+* **Webhooks:** Configure notificações automáticas para eventos no seu repositório, enviando dados para outras plataformas.
+
 
 # Boas Práticas e Dicas
 
+### Escrevendo bons commits e mensagens
+### Estrutura organizacional de repositórios
+### Segurança e permissões
+### Uso de templates e arquivos de configuração (`.gitignore`, `README.md`)
+* **`.gitignore`:**  Liste os arquivos e pastas que você **não** quer que o Git rastreie, como arquivos de sistema operacional, logs, pastas temporárias, etc.
+* **`README.md`:**  Crie um arquivo README claro e informativo na raiz do seu projeto, contendo (se aplicável):
+    * Título do projeto e breve descrição.
+    * Instruções de instalação e uso.
+    * Tecnologias utilizadas.
+    * Como contribuir para o projeto.
+* **Templates de Issues e Pull Requests:** Padronize a criação de Issues e Pull Requests utilizando templates. Isso garante informações essenciais e facilita a triagem e o tratamento das solicitações.
+
+
+[^1]: [Criando um repositório](https://github.blog/developer-skills/github/beginners-guide-to-github-uploading-files-and-folders-to-github/ )  
+[^2]: [Criar uma conta no github](https://docs.github.com/pt/get-started/start-your-journey/creating-an-account-on-github )  
+[^3]: [Criando um pull request](https://docs.github.com/pt/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)  
+[^4]: [Git add](https://www.atlassian.com/git/tutorials/saving-changes)  
+[^5]: [Git commit](https://git-scm.com/docs/git-commit/pt_BR  )  
+[^6]: [Conflitos](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts)  
+[^7]: [Actions](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs )  
+[^8]: [Issues](https://github.com/features/issues )  
+[^9]: [Pages](https://pages.github.com/ )  
+[^10]: [Pages custom domain 1](https://hossainkhan.medium.com/using-custom-domain-for-github-pages-86b303d3918a )  
+[^11]: [Pages custom domain 2](https://docs.github.com/pt/enterprise-cloud@latest/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site )  
