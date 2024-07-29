@@ -244,8 +244,59 @@ Transforme o repositório em um site estático hospedado no GitHub em alguns cli
 # Boas Práticas e Dicas
 
 ### Escrevendo bons commits e mensagens
+Faça commits apenas em códigos completos e bem testados e procure fazer pequenos commits, agrupando alterações relacionadas, descreva claramente seus commits pois seu log de confirmações deve contar uma história. Esforce-se para escrever mensagens que retratem de forma concisa o que cada alteração significa.
+
 ### Estrutura organizacional de repositórios
+A organização de repositórios no GitHub é crucial para garantir a eficiência, a colaboração e a manutenção de projetos de software. Uma estrutura bem definida facilita a navegação, a gestão de permissões e a colaboração entre membros da equipe. Existem diferentes abordagens para organizar os repositórios, cada uma com suas vantagens e desvantagens.
+
+Os repositórios monolíticos contêm todo o código-fonte em um único lugar, o que simplifica o gerenciamento de dependências internas e facilita a integração contínua e o deploy contínuo (CI/CD). No entanto, podem se tornar difíceis de gerenciar à medida que crescem, e o tempo de build pode ser mais longo. Já os repositórios multi-repo dividem o projeto em várias partes menores, cada uma responsável por um componente ou serviço específico. Isso facilita a modularidade e a reutilização de componentes, melhora a escalabilidade e a gestão de equipes, mas pode complicar o gerenciamento de dependências e exigir um sistema robusto de integração.
+
+Dentro de cada repositório, a organização dos diretórios é essencial. A pasta src geralmente contém o código-fonte principal do projeto, lib abriga bibliotecas e dependências internas, e bin é destinada a arquivos binários e executáveis. A documentação do projeto deve ser colocada em uma pasta docs, enquanto arquivos como README.md e CONTRIBUTING.md fornecem informações importantes sobre o projeto e orientações para contribuidores. Arquivos de configuração devem ser armazenados na pasta config, e scripts de automação na pasta scripts.
+
+A gestão de permissões e colaboração é outro aspecto fundamental. O GitHub permite definir diferentes níveis de acesso, desde permissões totais (Owner) até apenas leitura (Read). A criação de equipes com base em funções, como desenvolvedores, revisores de código e QA, e a definição clara de responsabilidades e permissões, facilitam a colaboração. Ferramentas como Issues e Project Boards ajudam a gerenciar tarefas e acompanhar o progresso.
+
+A automação e integração contínua podem ser implementadas utilizando GitHub Actions para configurar pipelines de CI/CD e criar workflows automatizados para testes, builds e deploys. Webhooks também podem ser configurados para integrar o GitHub com outras ferramentas de desenvolvimento e monitoramento.
+
+Por fim, boas práticas de manutenção são essenciais. Utilizar Git tags para marcar versões estáveis do projeto e adotar uma convenção de versionamento semântico ajudam a manter o controle das versões. Arquivar repositórios que não são mais ativos e revisar regularmente as branches obsoletas são práticas recomendadas para manter a organização.
+
 ### Segurança e permissões
+
+A segurança e a gestão de permissões no GitHub são aspectos cruciais para proteger projetos e garantir que apenas indivíduos autorizados possam realizar determinadas ações. Uma configuração bem planejada de segurança e permissões ajuda a mitigar riscos, proteger informações sensíveis e manter a integridade do código.
+
+### Controle de Acesso e Permissões
+No GitHub, é possível definir diferentes níveis de acesso para colaboradores de um repositório, cada um com permissões específicas:
+
+Owner:Tem controle total sobre o repositório, incluindo a capacidade de alterar configurações, gerenciar permissões e excluir o repositório. Normalmente, apenas os administradores principais ou os responsáveis pelo projeto devem ter esse nível de acesso.
+
+Admin: Pode realizar muitas das mesmas ações que um Owner, exceto modificar as permissões de outros Owners. Ideal para gerentes de projeto e líderes técnicos que precisam de um alto nível de controle.
+
+Write: Permite criar, modificar e excluir branches e commits, além de gerenciar issues e pull requests. Esse nível de acesso é geralmente atribuído a desenvolvedores que trabalham ativamente no projeto.
+
+Read: Oferece acesso apenas para visualizar o código, issues e pull requests. Esse nível é útil para membros que precisam revisar o projeto sem fazer alterações diretas. 
+
+## Práticas Recomendadas de Segurança Para garantir a segurança do repositório e das informações armazenadas, é fundamental seguir algumas práticas recomendadas:
+
+* Autenticação de Dois Fatores (2FA):Habilitar a autenticação de dois fatores para todos os colaboradores aumenta significativamente a segurança das contas, reduzindo o risco de acesso não autorizado.
+
+* Revisão de Código: Implementar um processo rigoroso de revisão de código, exigindo que todas as alterações sejam revisadas e aprovadas por pelo menos um outro desenvolvedor antes de serem integradas ao branch principal. Isso ajuda a identificar e corrigir potenciais vulnerabilidades antes que o código seja implantado.
+
+* Branches Protegidos: Configurar branches protegidos para evitar que mudanças não revisadas sejam incorporadas ao branch principal. É possível exigir que todas as alterações passem por uma revisão de pull request e que todos os testes automatizados sejam executados com sucesso.
+ 
+* Gerenciamento de Secrets: Utilizar GitHub Secrets para armazenar informações sensíveis, como tokens de API, chaves de acesso e senhas. Essas informações são criptografadas e só podem ser usadas em workflows do GitHub Actions.
+ 
+* Auditoria e Monitoramento:Monitorar regularmente as atividades do repositório utilizando as funcionalidades de logs e auditoria do GitHub. Isso permite identificar comportamentos suspeitos ou não autorizados e responder rapidamente a incidentes de segurança.
+
+* Políticas de Segurança:Criar e manter uma política de segurança clara e acessível para todos os membros do projeto. Essa política deve incluir diretrizes sobre como relatar vulnerabilidades, como responder a incidentes de segurança e as melhores práticas de segurança para o desenvolvimento de software.
+  
+## Gestão de Permissões em Equipes
+A organização de equipes dentro do GitHub é uma prática eficiente para gerenciar permissões de forma centralizada:
+
+* Criação de Equipes: Agrupar colaboradores em equipes baseadas em suas funções (ex.: desenvolvedores, revisores de código, QA) facilita a atribuição de permissões de forma consistente.
+Permissões Granulares: Atribuir permissões específicas a cada equipe de acordo com suas responsabilidades. Por exemplo, a equipe de QA pode ter permissões de leitura, enquanto os desenvolvedores têm permissões de escrita.
+
+* Integração com Ferramentas Externas: Utilizar integrações com ferramentas de gestão de identidade e acesso (IAM) para automatizar o gerenciamento de permissões e garantir conformidade com as políticas de segurança da organização.
+
+
 ### Uso de templates e arquivos de configuração (`.gitignore`, `README.md`)
 * **`.gitignore`:**  Liste os arquivos e pastas que você **não** quer que o Git rastreie, como arquivos de sistema operacional, logs, pastas temporárias, etc.
 * **`README.md`:**  Crie um arquivo README claro e informativo na raiz do seu projeto, contendo (se aplicável):
