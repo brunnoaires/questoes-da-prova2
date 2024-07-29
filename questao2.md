@@ -1,6 +1,6 @@
 Considere trecho de código em C que implementa uma função para verificar se um número é primo:
 
-
+```
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -27,6 +27,7 @@ printf("%d não é primo\n", numero);
 }
 return 0;
 }
+```
 
 a) Grafo de Fluxo de Controle: O grafo de fluxo de controle representa as diferentes direções que o programa pode seguir com base nas condições. 
 Para o código fornecido, o grafo de fluxo de controle é relativamente simples. 
