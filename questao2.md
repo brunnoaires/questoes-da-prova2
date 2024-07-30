@@ -1,65 +1,59 @@
 Considere trecho de código em C que implementa uma função para verificar se um número é primo:
 
-```
-#include <stdio.h>
-#include <stdbool.h>
+![codigo em c](img/code_snippet.png)
 
-bool ehPrimo(int num) {
-if (num <= 1) {
-return false;
-}
-
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    
-    return true;
-}
-
-int main() {
-int numero = 29;
-if (ehPrimo(numero)) {
-printf("%d é primo\n", numero);
-} else {
-printf("%d não é primo\n", numero);
-}
-return 0;
-}
-```
-
-a) Grafo de Fluxo de Controle: O grafo de fluxo de controle representa as diferentes direções que o programa pode seguir com base nas condições. 
-Para o código fornecido, o grafo de fluxo de controle é relativamente simples. 
-Ele consiste em um caminho linear com uma bifurcação (condicional) para verificar se o número é primo ou não.
-
-b) Caminhos Independentes: Existem dois caminhos independentes no código:
-Caminho quando num é maior que 1 e é primo (entra no bloco if).
-Caminho quando num é menor ou igual a 1 ou não é primo (entra no bloco else).
-
-c) Caminhos Identificados:
-Caminho: num > 1 e é primo.
-Caminho: num <= 1 ou não é primo.
-
-d) Casos de Teste para Cobertura:
-Para o caminho 1 (número primo):
-Entrada: num = 29 (um número primo maior que 1).
-Para o caminho 2 (número não primo):
-Entrada: num = 1 (número menor ou igual a 1).
-Entrada: num = 4 (número não primo).
-
-e) Condições Lógicas:
-num <= 1: Verifica se o número é menor ou igual a 1.
-i * i <= num: Verifica se i * i é menor ou igual a num.
-num % i == 0: Verifica se num é divisível por i.
-
-f) Conjunto Mínimo de Casos de Teste:
-
-Teste 1: num = 29 (número primo).
-Teste 2: num = 1 (número não primo).
-Teste 3: num = 4 (número não primo).
-g) Análise de Valor Limite:
-
-Teste 1: num = 2 (limite inferior, número primo).
-Teste 2: num = 3 (limite inferior, número primo).
-Teste 3: num = 1000000 (limite superior, número não primo).
+<ol type="a">
+    <li><b>Grafo de Fluxo de Controle para o algorítmo:</b></li>
+    <div align="center">
+        <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="img/q2-a_dark-graph-wide.png">
+            <source media="(prefers-color-scheme: light)" srcset="img/q2-a_light-graph-wide.png">
+            <img alt="Imagem do grafo de fluxo de controle." src="img/q2-a_light-graph-wide.png">
+        </picture>
+    </div>
+    <br>
+    <br>
+    <li><b>Caminhos Independentes:</b></li>
+    Existem 3 caminhos independentes, ou seja, 3 caminhos que passam por pelo menos uma das arestas que o outro caminho não passou. Cada caminho está colorido na imagem do grafo abaixo.
+    <div align="center">
+        <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="img/q2-b_dark-graph_wide.png">
+            <source media="(prefers-color-scheme: light)" srcset="img/q2-b_light-graph-wide.png">
+            <img alt="Imagem do grafo de fluxo de controle colorido." src="img/q2-b_light-graph-wide.png">
+        </picture>
+    </div>
+    <br>
+    <br>
+    <li><b>Caminhos Identificados:</b></li>
+    Conforme imagem com os grafos do tópico anterior, os caminhos independentes são:
+    <br>
+    $${\color{#82B366}c1: <1\textup{-}19, 20, 4\textup{-}5, 6, 22\textup{-}23, 24\textup{-}25>}$$<br>
+    $${\color{#6C8EBF}c2:<1\textup{-}19, 20, 4\textup{-}5, 7\textup{-}8, 9, 10, 11, 22\textup{-}23, 24\textup{-}25>}$$<br>
+    $${\color{#9673A6}c3:<1\textup{-}19,20,4\textup{-}5,7\textup{-}8,9,10,12\textup{-}13,9,14\textup{-}15,21,24-25>}$$
+    <br>
+    <li><b>Casos de Teste para Cobertura:</b></li>
+    <ul>
+        <li><b>Caso de teste para o caminho 1:</b></li>
+        Qualquer número inteiro <= 1. Ex.: numero = 1
+        <li><b>Caso de teste para o caminho 2:</b></li>
+        Qualquer número > 2 que não seja primo. Ex.: numero = 4
+        <li><b>Caso de teste para o caminho 3:</b></li>
+        Qualquer número primo. Ex.: numero = 2
+    </ul>
+    <li><b>Condições Lógicas:</b></li>
+    <code>num <= 1</code>: Verifica se o número é menor ou igual a 1.<br>
+    <code>i * i <= num</code>: Verifica se i * i é menor ou igual a num.<br>
+    <code>num % i == 0</code>: Verifica se num é divisível por i.<br>
+    <br>
+    <br>
+    <li><b>Conjunto Mínimo de Casos de Teste:</b></li>
+    <b>Teste 1:</b> <code>num = 29</code> (número primo).<br>
+    <b>Teste 2:</b> <code>num = 1</code> (número não primo).<br>
+    <b>Teste 3:</b> <code>num = 4</code> (número não primo).<br>
+    <br>
+    <br>
+    <li><b>Análise de Valor Limite:</b></li>
+    <b>Teste 1:</b> <code>num = 1</code> (limite inferior, número não primo).<br>
+    <b>Teste 2:</b> <code>num = 3</code> (limite inferior, número primo).<br>
+    <b>Teste 3:</b> <code>num = 1000000</code> (limite superior, número não primo).<br>
+</ol>

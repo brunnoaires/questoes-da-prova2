@@ -263,7 +263,7 @@ Por fim, boas práticas de manutenção são essenciais. Utilizar Git tags para 
 
 A segurança e a gestão de permissões no GitHub são aspectos cruciais para proteger projetos e garantir que apenas indivíduos autorizados possam realizar determinadas ações. Uma configuração bem planejada de segurança e permissões ajuda a mitigar riscos, proteger informações sensíveis e manter a integridade do código.
 
-### Controle de Acesso e Permissões
+#### Controle de Acesso e Permissões
 No GitHub, é possível definir diferentes níveis de acesso para colaboradores de um repositório, cada um com permissões específicas:
 
 Owner:Tem controle total sobre o repositório, incluindo a capacidade de alterar configurações, gerenciar permissões e excluir o repositório. Normalmente, apenas os administradores principais ou os responsáveis pelo projeto devem ter esse nível de acesso.
@@ -274,7 +274,8 @@ Write: Permite criar, modificar e excluir branches e commits, além de gerenciar
 
 Read: Oferece acesso apenas para visualizar o código, issues e pull requests. Esse nível é útil para membros que precisam revisar o projeto sem fazer alterações diretas. 
 
-## Práticas Recomendadas de Segurança Para garantir a segurança do repositório e das informações armazenadas, é fundamental seguir algumas práticas recomendadas:
+#### Práticas Recomendadas de Segurança 
+Para garantir a segurança do repositório e das informações armazenadas, é fundamental seguir algumas práticas recomendadas:
 
 * Autenticação de Dois Fatores (2FA):Habilitar a autenticação de dois fatores para todos os colaboradores aumenta significativamente a segurança das contas, reduzindo o risco de acesso não autorizado.
 
@@ -288,7 +289,7 @@ Read: Oferece acesso apenas para visualizar o código, issues e pull requests. E
 
 * Políticas de Segurança:Criar e manter uma política de segurança clara e acessível para todos os membros do projeto. Essa política deve incluir diretrizes sobre como relatar vulnerabilidades, como responder a incidentes de segurança e as melhores práticas de segurança para o desenvolvimento de software.
   
-## Gestão de Permissões em Equipes
+#### Gestão de Permissões em Equipes
 A organização de equipes dentro do GitHub é uma prática eficiente para gerenciar permissões de forma centralizada:
 
 * Criação de Equipes: Agrupar colaboradores em equipes baseadas em suas funções (ex.: desenvolvedores, revisores de código, QA) facilita a atribuição de permissões de forma consistente.
